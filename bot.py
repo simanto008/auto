@@ -1,9 +1,5 @@
-
-
 from traceback import format_exc
-
 from telethon import Button, events
-
 from core.bot import Bot
 from core.executors import Executors
 from database import DataBase
@@ -56,14 +52,14 @@ async def _start(event):
             msg = await bot.get_messages(Var.BACKUP_CHANNEL, ids=int(msg_id))
             sent_msg = await event.reply(msg.text, file=msg.media)
             notice = await event.reply(
-                "⚠️ **Important Notice:**\n\n```This file will be automatically deleted after 10 minutes.```\n__Please save or forward it immediately.__"
+                "⚠️ **Important Notice:**\nThis file will be automatically deleted after 10 minutes."
             )
             asyncio.create_task(bot.delete_after([notice, sent_msg]))
         else:
             items = await dB.get_store_items(msg_id)
             if items:
                 notice = await event.reply(
-                    "⚠️ **Important Notice:**\n\n```These files will be automatically deleted after 10 minutes.```\n__Please save or forward them immediately.__"
+                    "⚠️ **Important Notice:**\nThis file will be automatically deleted after 10 minutes."
                 )
                 sent_messages = [notice]
                 for id in items:
@@ -79,13 +75,13 @@ async def _start(event):
                 buttons=admin.admin_panel(),
             )
         await event.reply(
-            f"**Enjoy Ongoing Anime's Best Encode 24/7 🫡**",
+            f"**Enjoy AniShare Anime's Best Encode 24/7 🫡**",
             buttons=[
                 [
                     Button.url("👨‍💻 DEV", url="t.me/mdl_wigga"),
                     Button.url(
                         "💖 Our Channel",
-                        url="https://t.me/anisharedone/",
+                        url="https://t.me/anishare_com/",
                     ),
                 ]
             ],
@@ -145,7 +141,7 @@ async def _(e):
 
 async def anime(data):
     try:
-        torr = [data.get("480p"), data.get("720p"), data.get("1080p")]
+        torr = [data.get("720p"), data.get("1080p")]
         anime_info = AnimeInfo(torr[0].title)
         poster = await tools._poster(bot, anime_info)
         if await dB.is_separate_channel_upload():

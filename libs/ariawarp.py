@@ -1,7 +1,4 @@
-
-
 import asyncio
-
 
 class Torrent:
     def __init__(self) -> None:

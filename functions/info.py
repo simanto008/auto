@@ -1,5 +1,3 @@
-
-
 from traceback import format_exc
 
 import anitopy
@@ -15,7 +13,7 @@ class AnimeInfo:
 **{}
 ━━━━━━━━━━━━━━━
 ‣ Language:** `Japanese [ESub]`
-**‣ Quality:** `480p|720p|1080p`
+**‣ Quality:** `720p & 1080p`
 **‣ Season:** `{}`
 **‣ Episode:** `{}`
 **━━━━━━━━━━━━━━━**
@@ -72,7 +70,7 @@ class AnimeInfo:
             anime_name = self.data.get("anime_title")
             if anime_name and self.data.get("episode_number"):
                 return (
-                    f"[S{self.data.get('anime_season') or 1}-{self.data.get('episode_number') or ''}] {(await self.get_english())} [{self.data.get('video_resolution')}].mkv".replace(
+                    f"[S{self.data.get('anime_season') or 1}E{self.data.get('episode_number') or ''}] {(await self.get_english())} [{self.data.get('video_resolution')}].mkv".replace(
                         "‘", ""
                     )
                     .replace("’", "")

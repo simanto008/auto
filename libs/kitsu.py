@@ -1,5 +1,3 @@
-
-
 import aiohttp
 from AnilistPython import Anilist
 

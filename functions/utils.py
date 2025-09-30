@@ -24,7 +24,7 @@ ABOUT = """
 • **💻 Server**: `{}`
 • **📖 Source Code** : {}
 
-~ **Developer**  __@Kaif_00z __
+~ **Developer**  __@mdl_wigga __
 """
 
 
@@ -173,6 +173,6 @@ class AdminUtils:
             self.telethon_version,
             self.pyrogram_version,
             self.system,
-            "[OngoingAnimeBot](https://github.com/mdl_wigga)",
+            "[OngoingAnime(https://t.me/anishare_com)",
         )
         await e.reply(text, file="assest/about.jpg", link_preview=False)

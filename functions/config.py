@@ -31,7 +31,7 @@ class Var:
         "THUMBNAIL", default="https://fayoanime.web.app/as/anishare.jpg"
     )
     FFMPEG = config("FFMPEG", default="ffmpeg")
-    CRF = config("CRF", default="25")
+    CRF = config("CRF", default="23")
     SEND_SCHEDULE = config("SEND_SCHEDULE", default=True, cast=bool)
     RESTART_EVERDAY = config("RESTART_EVERDAY", default=True, cast=bool)
     LOG_ON_MAIN = config("LOG_ON_MAIN", default=False, cast=bool)

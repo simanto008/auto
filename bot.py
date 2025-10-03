@@ -52,14 +52,14 @@ async def _start(event):
             msg = await bot.get_messages(Var.BACKUP_CHANNEL, ids=int(msg_id))
             sent_msg = await event.reply(msg.text, file=msg.media)
             notice = await event.reply(
-                "⚠️ **Important Notice:**\nThis file will be automatically deleted after 10 minutes."
+                "⚠️ **Important Notice:**\n\nThis file will be automatically deleted after 10 minutes."
             )
             asyncio.create_task(bot.delete_after([notice, sent_msg]))
         else:
             items = await dB.get_store_items(msg_id)
             if items:
                 notice = await event.reply(
-                    "⚠️ **Important Notice:**\nThis file will be automatically deleted after 10 minutes."
+                    "⚠️ **Important Notice:**\n\nThis file will be automatically deleted after 10 minutes."
                 )
                 sent_messages = [notice]
                 for id in items:
@@ -75,13 +75,13 @@ async def _start(event):
                 buttons=admin.admin_panel(),
             )
         await event.reply(
-            f"**Enjoy AniShare Anime's Best Encode 24/7 🫡**",
+            f"**Enjoy AniShare's Best Encode 24/7 🫡**",
             buttons=[
                 [
                     Button.url("👨‍💻 DEV", url="t.me/mdl_wigga"),
                     Button.url(
                         "💖 Our Channel",
-                        url="https://t.me/anishare_com/",
+                        url="https://t.me/anishare_com",
                     ),
                 ]
             ],

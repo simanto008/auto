@@ -188,7 +188,7 @@ class Tools:
         if not total_frames:
             return False, "Unable to Count The Frames!"
         _progress = f"progress-{time.time()}.txt"
-        cmd = f'''{Var.FFMPEG} -hide_banner -loglevel quiet -progress """{_progress}""" -i """{dl}""" -metadata "Encoded By"="[AniShare]" -metadata:s title="[AniShare]" -metadata comment="Added By @AniShare_Com - Join Now On Telegram" -preset slow -c:v libx265 -crf {Var.CRF} -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? -threads {self.ffmpeg_threads} """{out}""" -y'''
+        cmd = f'''{Var.FFMPEG} -hide_banner -loglevel quiet -progress """{_progress}""" -i """{dl}""" -metadata "Encoded By"="[AniShare]" -metadata comment="Added By @AniShare_Com - Join Now On Telegram" -preset medium -c:v libx265 -crf {Var.CRF} -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? -threads {self.ffmpeg_threads} """{out}""" -y'''
         process = await asyncio.create_subprocess_shell(
             cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
